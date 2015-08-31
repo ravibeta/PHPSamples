@@ -1,0 +1,97 @@
+<?php
+class Reminder extends CActiveRecord
+{
+    public $reminder_name;
+    public $created_by;
+    public $status;
+    public $search_field;
+    public $search_value;
+    public $created;
+    public $created_by_email;
+    public $search_user;
+    public $purpose;
+    public $landscape;
+    public $action;
+    public $id;
+    public $url;
+    public static function model($className=__CLASS__)
+    {
+        return parent::model($className);
+    }
+
+    public function tableName()
+    {
+        return 'reminder';
+    }
+
+    public function relations()
+    {
+        return array(
+               'users'=>array(self::BELONGS_TO, 'User', array('created_by'=>'id')),
+        );
+    }
+
+    public function rules()
+    {
+        $str = 'reminder_name,  purpose';
+        if($this->getScenario() == 'add')
+                $str .= ', landscape,action';
+        return array(
+                   array($str, 'required'),
+                   array('status, search_field, search_value, created'),
+                   array('reminder_name', 'length', 'max' => 80),
+                   array('location, share_name, created, search_field, search_value, search_user', 'safe', 'on' => 'search')
+           );
+
+    }
+
+
+    public function attributeLabels()
+    {
+       return array(
+           'location'=>'Location','share_name'=>'CIFS export name','storage_size'=>'Storage Size in GB','readgroup' => 'Read Group', 'writegroup' => 'Write Group', 'backup'=>'Backup','purpose'=>'Purpose','landscape'=>'Landscape','new_owner'=>'New Owner');
+    }
+
+    public function search() {
+
+        $no_user_id=false;
+        $criteria=new CDbCriteria();
+        $criteria->condition = "status in ('LA','A')";
+        if(!empty($this->search_user) && !empty($this->search_user))
+                $no_user_id = true;
+        if($this->owner && $no_user_id === false)
+            $criteria->addCondition("created_by='$this->owner'");
+        if (!empty($this->search_field) && !empty($this->search_value)) {
+                $this->{$this->search_field} = $this->search_value;
+        }
+        $criteria->compare('share_name', $this->share_name, true);
+        $criteria->compare('location', $this->location, true);
+        if(!empty($this->created)) {
+                $criteria->addCondition("created >= '".$this->created." 00:00:00'");
+                $criteria->addCondition("created <= '".$this->created." 23:59:59'");
+        }
+        return new CActiveDataProvider($this,
+                array(
+                    'criteria' => $criteria,
+                    'sort' => array(
+                                'defaultOrder' => 'created DESC',
+                        ),
+                    'pagination'=>array(
+                        'pageSize'=> 10,
+                     ),
+        ));
+    }
+
+        public function getCreatedBy($data,$row=""){
+
+                $criteria=new CDbCriteria();
+                $criteria->select = array("t.*,c.email as created_by_email");
+                $criteria->join ='INNER JOIN account_users c ON c.id=t.created_by';
+                $criteria->condition = 't.created_by='.$data['created_by'];
+
+                $model = Cifs::model()->find($criteria);
+                echo $model->created_by_email;
+        }
+        
+        }
+?>
