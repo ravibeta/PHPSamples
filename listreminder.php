@@ -14,12 +14,12 @@
     <table style="margin:0 0px 0 15px;width:97%;">
        <tr style="font-size:1.1em;font-weight:bold;background-color:#E8E8E8;">
            <th style="padding:10px;width:10%;">Reminder Id</th>
-           <th style="padding:10px;text-align:center;width: 20%">Created Date</th>
-           <th style="padding:10px;;text-align:center;width: 25%">Secret</th>
-           <th style="padding:10px;;text-align:center;width:30%;" colspan="2">Action</th>
-           <th style="padding:10px;text-align:center;width: 15%;">Special Reminder
-                <a class="tooltip" href="#" style='margin-left: 6px;'><img style="vertical-align: middle;margin-bottom: 2px;" src="<?php echo Yii::app()->request->baseUrl.'/images/icon-tooltip.png'; ?>"/><span class="custom help" style="left:-245px;"><img class="testimg" src="<?php echo Yii::app()->request->baseUrl; ?>/images/Help.png" alt="help" height="48" width="48" />Special Reminder is currently in use for this session, and it cannot be deleted from this interface</span></a>
-           </th>
+           <th style="padding:10px;text-align:center;width: 10%">Created By</th>
+           <th style="padding:10px;;text-align:center;width: 10%">Purpose</th>
+           <th style="padding:10px;;text-align:center;width:10%;" colspan="2">Landscape</th>
+           <th style="padding:10px;text-align:center;width: 10%;">Action</th>
+           <th style="padding:10px;text-align:center;width: 10%">Created Date</th>
+           <th style="padding:10px;text-align:center;width: 10%">Activate/Deactivate/Delete</th>
       </tr>
           <?php
     $record = 1;
