@@ -1,0 +1,58 @@
+/* -----------------------------------------------------------------------
+
+
+ Blueprint CSS Framework 1.0.1
+ http://blueprintcss.org
+
+   * Copyright (c) 2007-Present. See LICENSE for more info.
+   * See README for instructions on how to use Blueprint.
+   * For credits and origins, see AUTHORS.
+   * This is a compressed file. See the sources in the 'src' directory.
+
+----------------------------------------------------------------------- */
+
+/* ie.css */
+.content {
+    float: none;
+    border:1px solid #fff;
+}
+.row_6 {
+    background:#4d4d4d ;
+     -pie-background: linear-gradient( top, #4d4d4d 89%, #b3b1b3 100%);
+    behavior: url(scripts/PIE.htc);
+}
+
+.column_6 {
+     background:#756C75 ;
+}
+.column_6 select{
+   text-decoration:none;
+   border:none;
+   outline:none;
+}
+
+.jqueryslidemenu ul li ul{
+  z-index:900 !important;
+}
+.content #content h2 {
+background: #756C75 !important;
+}
+span.large {
+background: #A897A8 !important;
+left:80px;
+position:absolute;
+top:43px;
+padding:0 3px 0px 3;
+line-height: 14px;
+}
+span.medium {
+background: #A897A8 !important;
+left:80px;
+position:absolute;
+top:43px;
+padding:0 3px 0px 3;
+line-height: 14px;
+}
+A.comment_with_button_btn {
+   padding: 5px 20px 7px 10px;
+}
