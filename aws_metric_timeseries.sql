@@ -5,7 +5,7 @@ CREATE TABLE [dbo].[Metric]
     [Created] DATETIME NOT NULL, 
     [Value] REAL NOT NULL DEFAULT 0.00, 
     [Type] NVARCHAR(50) NOT NULL DEFAULT 'Gauge', 
-    [Units] NVARCHAR(50) NULL DEFAULT 'NA', 
+    [Units] NVARCHAR(50) NOT NULL DEFAULT 'NA', 
     [Service] NVARCHAR(50) NULL, 
     [Region] NVARCHAR(50) NULL, 
     [InstanceID] INT NULL, 
