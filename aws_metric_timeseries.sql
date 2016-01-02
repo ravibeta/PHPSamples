@@ -11,7 +11,7 @@ CREATE TABLE [dbo].[Metric]
     [InstanceID] INT NULL, 
     [ClusterID] INT NULL, 
     [ProjectID] INT NULL, 
-    [Created By] INT NULL
+    [Created By] NVARCHAR(50) NULL
 )
 
 GO
