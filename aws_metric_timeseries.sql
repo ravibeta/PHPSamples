@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[Metric]
 (
-	[ID] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [ID] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Label] NVARCHAR(50) NOT NULL DEFAULT 'UNKNOWN', 
     [Created] DATETIME NOT NULL DEFAULT getdate(), 
     [Value] REAL NOT NULL DEFAULT 0.00, 
@@ -9,7 +9,8 @@ CREATE TABLE [dbo].[Metric]
     [Service] NVARCHAR(50) NULL, 
     [Region] NVARCHAR(50) NULL, 
     [InstanceID] NVARCHAR(50) NULL, 
-    [ClusterID] NVARCHAR(50) NULL, 
+    [ClusterID] NVARCHAR(50) NULL,
+    [ProjectID] NVARCHAR(50) NULL, 
     [Created By] NVARCHAR(50) NULL
 )
 
