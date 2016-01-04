@@ -7,3 +7,5 @@ SELECT Label, Created, Value, Type, Units, Service, Region, InstanceID, ClusterI
 DELETE FROM Metric WHERE ID=@ID; 
 SELECT @ID=ID FROM Metric WHERE Created < '2014-01-01';
 END
+
+-- the archival policy here is date based but any criteria for selection can be specified.
