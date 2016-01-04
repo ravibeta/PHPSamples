@@ -1,0 +1,1 @@
+#service to receive metric notifications from AWS CloudWatch is in ravibeta/PythonExamples git repository
